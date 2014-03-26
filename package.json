@@ -1,0 +1,27 @@
+{
+  "name": "configa",
+  "version": "0.0.0",
+  "description": "app configuration management for node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kevinohara80/configa.git"
+  },
+  "keywords": [
+    "config",
+    "env"
+  ],
+  "author": "Kevin O'Hara",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kevinohara80/configa/issues"
+  },
+  "homepage": "https://github.com/kevinohara80/configa",
+  "devDependencies": {
+    "should": "^3.2.0-beta1",
+    "mocha": "^1.18.2"
+  }
+}
