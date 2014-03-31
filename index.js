@@ -7,6 +7,7 @@ var Config = function(){
   return this;
 }
 
+// set an option
 Config.prototype.option = function(opt) {
   opt = opt || {};
   if(!opt.name) throw new Error('Must specify an option name');
@@ -14,6 +15,7 @@ Config.prototype.option = function(opt) {
   return this;
 }
 
+// get a config variable
 Config.prototype.get = function(key){
   if(this._argv[key]) {
     return this._argv[key];
@@ -31,24 +33,7 @@ Config.prototype.get = function(key){
   }
 }
 
+// factory method
 module.exports = function() {
   return new Config();
 }
-
-// var config = require('configa');
-
-// config
-//   .priority({
-//     cli: 1,
-//     env: 2,
-//     default: 3
-//   })
-//   .option({
-//     name: 'port',
-//     env: 'PORT',
-//     alias: 'p',
-//     default: 3000
-//   })
-//   .option({
-
-//   })
