@@ -26,7 +26,7 @@ config
   .option({
     name: 'port',
     env: 'PORT',
-    alias: 'p',
+    alias: 'p', // a cli alias like -p
     default: 3000
   })
   .option({

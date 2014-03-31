@@ -1,6 +1,6 @@
 {
   "name": "configa",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "app configuration management for node.js",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,9 @@
   },
   "keywords": [
     "config",
-    "env"
+    "env",
+    "cli",
+    "argv"
   ],
   "author": "Kevin O'Hara",
   "license": "MIT",
