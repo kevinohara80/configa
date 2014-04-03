@@ -1,7 +1,7 @@
 var configa = require('../');
 var should = require('should');
 
-describe('index', function(){
+describe('basic.js', function(){
 
   // test the option function
   describe('#option', function() {
