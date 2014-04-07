@@ -6,6 +6,28 @@ describe('booleans.js', function(){
   // test the option function
   describe('#get', function() {
 
+    beforeEach(function(){
+      if(process.env['BLAH']) {
+        delete process.env['BLAH'];  
+      }
+    });
+
+    it('should return true for a default of true', function() {
+      var config = 
+        configa()
+        .option({
+          name: 'blah',
+          env: 'BLAH',
+          alias: 'b',
+          type: Boolean,
+          default: true
+        });
+      should.not.exist(process.env['BLAH']);
+      should.not.exist(config._argv['blah']);
+      var val = config.get('blah');
+      val.should.equal(true);
+    });
+
     it('should return true from env string "true"', function(){
       process.env['BLAH'] = 'true';
       var config = 

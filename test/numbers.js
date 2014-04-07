@@ -6,6 +6,28 @@ describe('numbers.js', function(){
   // test the option function
   describe('#get', function() {
 
+    beforeEach(function(){
+      if(process.env['BLAH']) {
+        delete process.env['BLAH'];  
+      }
+    });
+
+    it('should return 100 for a default of 100', function() {
+      var config = 
+        configa()
+        .option({
+          name: 'blah',
+          env: 'BLAH',
+          alias: 'b',
+          type: Number,
+          default: 100
+        });
+      should.not.exist(process.env['BLAH']);
+      should.not.exist(config._argv['blah']);
+      var val = config.get('blah');
+      val.should.equal(100);
+    });
+
     it('should return 99 from env string "99"', function(){
       process.env['BLAH'] = '99';
       var config = 

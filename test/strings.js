@@ -6,6 +6,12 @@ describe('strings.js', function(){
   // test the option function
   describe('#get', function() {
 
+    beforeEach(function(){
+      if(process.env['BLAH']) {
+        delete process.env['BLAH'];  
+      }
+    });
+
     it('should return "99" from env number 99', function(){
       process.env['BLAH'] = 99;
       var config = 

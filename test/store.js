@@ -6,6 +6,12 @@ describe('store.js', function(){
   // test the get function
   describe('#get', function(){
 
+    beforeEach(function(){
+      if(process.env['BLAH']) {
+        delete process.env['BLAH'];  
+      }
+    });
+
     it('should retrieve stored values after changes to argv', function() {
       process.env['BLAH'] = 'bar';
       var config = 

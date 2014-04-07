@@ -68,7 +68,12 @@ Config.prototype.store = function() {
 
 // helper functions
 function getBooleanValue(val) {
-  if(!val) return false;
+  if(typeof val === undefined || typeof val === null) {
+    return false;
+  }
+  if(typeof val === 'boolean') {
+    return val;
+  }
   if(val === '1') {
     return true;
   } else if (typeof val === 'string' && val.toLowerCase() === 'true') {
@@ -78,7 +83,9 @@ function getBooleanValue(val) {
 }
 
 function getNumberValue(val) {
-  if(!val) return;
+  if(typeof val === undefined || typeof val === null) {
+    return val;
+  }
   if(typeof val !== 'number') {
     try {
       val = parseFloat(val);
@@ -93,7 +100,9 @@ function getNumberValue(val) {
 }
 
 function getStringValue(val) {
-  if(!val) return;
+  if(typeof val === undefined || typeof val === null) {
+    return val;
+  }
   if(typeof val !== 'string') {
     val+= '';
   }

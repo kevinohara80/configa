@@ -6,6 +6,12 @@ describe('basic.js', function(){
   // test the option function
   describe('#option', function() {
 
+    beforeEach(function(){
+      if(process.env['BLAH']) {
+        delete process.env['BLAH'];  
+      }
+    });
+
     it('should allow for setting options', function(){
       var config = 
         configa()
@@ -35,6 +41,12 @@ describe('basic.js', function(){
 
   // test the get function
   describe('#get', function(){
+
+    beforeEach(function(){
+      if(process.env['BLAH']) {
+        delete process.env['BLAH'];  
+      }
+    });
 
     it('should return the value from the default', function(){
       var config = configa();
