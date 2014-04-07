@@ -76,7 +76,7 @@ describe('booleans.js', function(){
           type: Boolean,
           default: false
         });
-      config._argv.blah = '1';
+      config._argv.b = '1';
       var val = config.get('blah');
       val.should.equal(true);
     });
