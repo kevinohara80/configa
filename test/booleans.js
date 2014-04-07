@@ -1,5 +1,5 @@
 var configa = require('../');
-var should = require('should');
+var should  = require('should');
 
 describe('booleans.js', function(){
 

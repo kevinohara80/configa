@@ -20,6 +20,11 @@ Config.prototype.get = function(key){
   var val;
   var opt = this._options[key];
 
+  // return stored value if already stored.
+  if(opt && opt.stored) {
+    return opt.stored;
+  }
+
   // find the appropriate location for the value
   if(this._argv[key]) {
     val = this._argv[key];
@@ -46,6 +51,18 @@ Config.prototype.get = function(key){
 
   return val;
 
+};
+
+// compute and store the values for the options for fast retrieval
+Config.prototype.store = function() {
+  var that = this;
+  if(this._options) {
+    Object.keys(this._options).forEach(function(k) {
+      var o = that._options[k];
+      o.stored = that.get(k);
+      that._options[k] = o;
+    });
+  }
 };
 
 // helper functions
