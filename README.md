@@ -27,13 +27,21 @@ config
     name: 'port',
     env: 'PORT',
     alias: 'p', // a cli alias like -p
+    type: Number,
     default: 3000
   })
   .option({
     name: 'foo',
     env: 'FOO',
     alias: 'f',
+    type: String,
     default: 'bar'
+  })
+  .option({
+    name: 'bar',
+    env: 'BAR',
+    type: Boolean,
+    default: false
   });
 ```
 
@@ -41,4 +49,17 @@ And the getter:
 
 ```js
 var val = config.get('port');
+```
+
+The `store()` method caches the calculated values for performance:
+
+```js
+config
+  .option({
+    name: 'port',
+    env: 'PORT',
+    alias: 'p', // a cli alias like -p
+    default: 3000
+  })
+  .store();
 ```

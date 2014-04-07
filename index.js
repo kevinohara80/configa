@@ -63,6 +63,7 @@ Config.prototype.store = function() {
       that._options[k] = o;
     });
   }
+  return this;
 };
 
 // helper functions
@@ -93,6 +94,9 @@ function getNumberValue(val) {
 
 function getStringValue(val) {
   if(!val) return;
+  if(typeof val !== 'string') {
+    val+= '';
+  }
   return val;
 }
 
