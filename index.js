@@ -68,7 +68,7 @@ Config.prototype.store = function() {
 
 // helper functions
 function getBooleanValue(val) {
-  if(typeof val === undefined || typeof val === null) {
+  if(!val) {
     return false;
   }
   if(typeof val === 'boolean') {
@@ -83,7 +83,7 @@ function getBooleanValue(val) {
 }
 
 function getNumberValue(val) {
-  if(typeof val === undefined || typeof val === null) {
+  if(!val) {
     return val;
   }
   if(typeof val !== 'number') {
@@ -100,8 +100,8 @@ function getNumberValue(val) {
 }
 
 function getStringValue(val) {
-  if(typeof val === undefined || typeof val === null) {
-    return val;
+  if(!val) {
+    return null;
   }
   if(typeof val !== 'string') {
     val+= '';
