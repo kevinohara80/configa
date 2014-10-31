@@ -1,6 +1,6 @@
 {
   "name": "configa",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "app configuration management for node.js",
   "main": "index.js",
   "scripts": {
