@@ -42,6 +42,35 @@ describe('strings.js', function(){
       val.should.equal('true');
     });
 
+    it('should return undefined when not set in env', function() {
+      var config = 
+        configa()
+        .option({
+          name: 'blah',
+          env: 'BLAH',
+          alias: 'b',
+          type: String
+        });
+      var val = config.get('blah');
+      (typeof val).should.be.equal('undefined');
+      should.not.exist(val);
+    })
+
+    it('should return undefined when not set in env after store', function() {
+      var config = 
+        configa()
+        .option({
+          name: 'blah',
+          env: 'BLAH',
+          alias: 'b',
+          type: String
+        })
+        .store();
+      var val = config.get('blah');
+      (typeof val).should.be.equal('undefined');
+      should.not.exist(val);
+    })
+
   });
 
 });

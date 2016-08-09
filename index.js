@@ -7,6 +7,10 @@ var Config = function(){
   return this;
 }
 
+function isUnset(val) {
+  return (typeof val === 'undefined') || val === null;
+}
+
 // set an option
 Config.prototype.option = function(opt) {
   opt = opt || {};
@@ -68,7 +72,7 @@ Config.prototype.store = function() {
 
 // helper functions
 function getBooleanValue(val) {
-  if(!val) {
+  if(isUnset(val)) {
     return false;
   }
   if(typeof val === 'boolean') {
@@ -83,8 +87,8 @@ function getBooleanValue(val) {
 }
 
 function getNumberValue(val) {
-  if(!val) {
-    return val;
+  if(isUnset(val)) {
+    return void 0;
   }
   if(typeof val !== 'number') {
     try {
@@ -100,8 +104,8 @@ function getNumberValue(val) {
 }
 
 function getStringValue(val) {
-  if(!val) {
-    return null;
+  if(isUnset(val)) {
+    return void 0;
   }
   if(typeof val !== 'string') {
     val+= '';
